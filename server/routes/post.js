@@ -7,6 +7,7 @@ const requireLogin = require('../middleware/requireLogin');
 //Get all posts
 router.get('/allposts', (req, res) => {
     Post.find()
+    .populate("postedBy", "_id name")
     .then(posts => {
         res.json({posts})
     })
@@ -34,6 +35,19 @@ router.post('/createpost', requireLogin, (req, res) => {
     .catch(err => {
         console.log(err);
     })
+})
+
+//get own posts
+router.get('/mypost',requireLogin, (req, res) => {
+    Post.find({postedBy: req.user._id})
+    .populate("postedBy", "_id name")
+    .then(mypost => {
+        res.json({mypost})
+    })
+    .catch(err => {
+        console.log(err)
+    })
+
 })
 
 module.exports = router;
