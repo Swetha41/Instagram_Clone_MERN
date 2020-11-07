@@ -14,6 +14,7 @@ mongoose.connect(process.env.MONGO_URI, {
 .catch((err) => console.log("error while connecting to DB"));
 
 require('./models/user');
+require('./models/post');
 app.use(express.json());
 app.use(require('./routes/auth'));
 
