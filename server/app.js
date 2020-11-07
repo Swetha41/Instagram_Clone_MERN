@@ -11,12 +11,13 @@ mongoose.connect(process.env.MONGO_URI, {
     useCreateIndex: true
 })
 .then(() => console.log('DB Connected'))
-.catch((err) => console.log("error while connecting to DB"));
+.catch((err) => console.log(err));
 
 require('./models/user');
 require('./models/post');
 app.use(express.json());
 app.use(require('./routes/auth'));
+app.use(require('./routes/post'));
 
 //Port
 const PORT = 5000;
