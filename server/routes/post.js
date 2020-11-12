@@ -117,8 +117,13 @@ router.delete('/deletepost/:postId', requireLogin, (req,res) => {
             return req.status(422).json({error:err})
         }
         if(post.postedBy._id.toString() === req.user._id.toString()){
-
-        }
+                post.remove()
+                .then(result => {
+                    res.json(result)
+                }).catch(err=>{
+                    console.log(err)
+                })
+            }
     })
 })
 
