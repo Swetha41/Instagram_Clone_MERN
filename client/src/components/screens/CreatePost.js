@@ -89,7 +89,7 @@ import M from 'materialize-css';
                 <button className="btn waves-effect waves-light #64b5f6 blue darken-1"
                 onClick= {() => postDetails()}
                 
-                >
+                >   
                  Submit Post
              </button>
             </div>
