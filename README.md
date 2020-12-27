@@ -10,5 +10,5 @@ Run commands:
 
 
 Live Demo:
-https://instaclone41.herokuapp.com
+Heroku: https://instaclone41.herokuapp.com
 
