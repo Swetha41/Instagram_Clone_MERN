@@ -11,7 +11,7 @@ router.get('/protected', requireLogin, (req, res) => {
 })
 
 //signup
-router.post('/signup', (req,res) => {
+router.post('/mysignup', (req,res) => {
     const { name, email, password, pic } = req.body;
     if(!name || !email || !password){
        return res.status(422).json({error: "please add all the fields"});
